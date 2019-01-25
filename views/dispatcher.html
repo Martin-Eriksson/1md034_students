@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +10,7 @@
   <script src="/socket.io/socket.io.js" defer></script>
   <script src="js/dispatcher.js" defer></script>
 </head>
+
 <body>
   <div id="orders">
     <div id="orderList">
@@ -17,10 +19,11 @@
       </div>
     </div>
     <div id="dots">
-        <div v-for="(order, key) in orders" v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-          {{ key }}
-        </div>
+      <div v-for="(order, key) in orders" v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+        {{ key }}
+      </div>
     </div>
   </div>
 </body>
+
 </html>
