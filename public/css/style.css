@@ -79,3 +79,16 @@ footer {
     margin-top: 1rem;
     border-top: 1px solid black;
 }
+
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.grid_table {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
