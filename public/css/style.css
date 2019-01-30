@@ -91,4 +91,17 @@ footer {
 .grid_table {
     display: grid;
     grid-template-columns: auto auto auto;
+    grid-gap: 0.25rem 0.25rem;
+}
+
+.row_a {
+    grid-row-start: 1;
+}
+
+.row_b {
+    grid-row-start: 2;
+}
+
+.row_c {
+    grid-row-start: 3;
 }
