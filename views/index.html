@@ -9,9 +9,11 @@
 </head>
 
 <body>
-    <main>
+    <header>
         <h1>Welcome to BurgerHeaven Online</h1>
-        <section>
+    </header>
+    <main>
+        <section id="burger_menu">
             <h3>Select burger</h3>
             <p>This is where you execute burger selection</p>
             <table>
@@ -19,11 +21,10 @@
                     <tr>
                         <th>The Fire Burger</th>
                         <th>Fried Turkey Burger</th>
-                        <th>Price</th>
+                        <th>A Double w/ Cheese</th>
                     </tr>
                 </thead>
                 <tbody>
-
                     <tr>
                         <td>
                             <img src="https://www.seriouseats.com/recipes/images/2015/07/20150728-homemade-whopper-food-lab-35-1500x1125.jpg"
@@ -35,10 +36,10 @@
                         </td>
                         <td>
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu1I4msjrKF-QiEbiVBadF1y0WSUBekYWMAeF4hz9ihLUNA20r"
-                                alt="Span" title="Another in-line element" height="125px">
+                                alt="Span" height="125px">
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="bolder">
                         <td>
                             <ul>
                                 <li>750 kCal</li>
@@ -100,11 +101,11 @@
                     <input type="radio" name="gender">Non-binary<br>
                     <input type="radio" name="gender" checked="checked">Undisclosed<br>
                 </p>
-            </form>
-            <button type="submit" form="delivery_form"><img src="https://static.thenounproject.com/png/1406661-200.png"
-                    alt="" style="height: 1.2rem;">
-                Place my order!</button>
         </section>
+        </form>
+        <button type="submit" form="delivery_form"><img src="https://static.thenounproject.com/png/1406661-200.png" alt=""
+                style="height: 1.2rem;">
+            Place my order!</button>
     </main>
     <footer>
         <p>© 2018 Hypothetical Burgers Inc.</p>
