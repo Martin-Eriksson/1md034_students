@@ -42,7 +42,6 @@ table {
 }
 
 .bolder {
-    /* background: red; */
     font-weight: bolder;
 }
 
@@ -90,18 +89,24 @@ footer {
 
 .grid_table {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
     grid-gap: 0.25rem 0.25rem;
 }
 
-.row_a {
-    grid-row-start: 1;
+.a {
+    display: grid;
 }
 
-.row_b {
-    grid-row-start: 2;
+.b {
+    display: grid;
 }
 
-.row_c {
-    grid-row-start: 3;
+.c {
+    display: grid;
+}
+
+.a,
+.b,
+.c {
+    justify-self: center;
 }
