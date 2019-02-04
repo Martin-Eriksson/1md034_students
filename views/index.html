@@ -6,6 +6,11 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="../public/css/style.css"> <!-- for VSC preview plugin -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script defer type="text/javascript" src="https://vuejs.org/js/vue.js"></script>
+    <script defer type="text/javascript" src="../public/js/js_script.js"></script> <!-- for VSC preview plugin -->
+    <script defer type="text/javascript" src="../public/js/vue_script.js"></script> <!-- for VSC preview plugin -->
+    <script defer type="text/javascript" src="js/vue_script.js"></script>
+    <script defer type="text/javascript" src="js/js_script.js"></script>
 </head>
 
 <body>
@@ -17,33 +22,13 @@
             <h3>Select burger</h3>
             <p>This is where you execute burger selection</p>
             <div class="grid_table center">
-                <div class="a">
-                    <h4>The Fire Burger</h4>
-                    <img src="https://www.seriouseats.com/recipes/images/2015/07/20150728-homemade-whopper-food-lab-35-1500x1125.jpg"
-                        alt="Span" title="Another in-line element" height="125px">
+                <div v-for="b in burgers" class="cell">
+                    <h4>{{b.name}}</h4>
+                    <img :src="b.image" alt="Span" :title="b.name" height="125px">
                     <ul>
-                        <li>750 kCal</li>
-                        <li>Contains <span class="bolder">lactose</span></li>
-                        <li>Contains gluten</li>
-                    </ul>
-                </div>
-                <div class="b">
-                    <h4>Fried Turkey Burger</h4>
-                    <img src="https://nerdist.com/wp-content/uploads/2018/08/bk-cheese-8152018-970-by-545.jpg" alt="Span"
-                        title="Another in-line element" height="125px">
-                    <ul>
-                        <li>600 kCal</li>
-                        <li>Contains <span class="bolder">lactose</span></li>
-                    </ul>
-                </div>
-                <div class="c">
-                    <h4>A Double w/ Cheese</h4>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu1I4msjrKF-QiEbiVBadF1y0WSUBekYWMAeF4hz9ihLUNA20r"
-                        alt="Span" height="125px">
-                    <ul>
-                        <li>1800 kCal</li>
-                        <li>Contains <span class="bolder">lactose</span></li>
-                        <li>Contains <span class="bolder">gluten</span></li>
+                        <li>{{b.kCal}} kCal</li>
+                        <li v-if="b.hasLactose == true">Contains <b>lactose</b></li>
+                        <li v-if="b.hasGluten == true">Contains <b>gluten</b></li>
                     </ul>
                 </div>
             </div>

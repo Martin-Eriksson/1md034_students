@@ -93,20 +93,7 @@ footer {
     grid-gap: 0.25rem 0.25rem;
 }
 
-.a {
+.cell {
     display: grid;
-}
-
-.b {
-    display: grid;
-}
-
-.c {
-    display: grid;
-}
-
-.a,
-.b,
-.c {
     justify-self: center;
 }
