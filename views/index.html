@@ -24,7 +24,7 @@
             <div class="grid_table center">
                 <div v-for="b in burgers" class="cell">
                     <h4>{{b.name}}</h4>
-                    <img :src="b.image" alt="Span" :title="b.name" height="125px">
+                    <img :src="b.image" :alt="b.name" :title="b.name" height="125px">
                     <ul>
                         <li>{{b.kCal}} kCal</li>
                         <li v-if="b.hasLactose == true">Contains <b>lactose</b></li>
