@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="../public/css/style.css"> <!-- for VSC preview plugin -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script defer type="text/javascript" src="https://vuejs.org/js/vue.js"></script>
+    <script defer type="text/javascript" src="js/menu.js"></script>
+    <script defer type="text/javascript" src="../public/js/menu.js"></script> <!-- for VSC preview plugin -->
     <script defer type="text/javascript" src="../public/js/js_script.js"></script> <!-- for VSC preview plugin -->
     <script defer type="text/javascript" src="../public/js/vue_script.js"></script> <!-- for VSC preview plugin -->
     <script defer type="text/javascript" src="js/vue_script.js"></script>
@@ -21,14 +23,14 @@
         <section id="burger_menu">
             <h3>Select burger</h3>
             <p>This is where you execute burger selection</p>
-            <div class="grid_table center">
+            <div style="height: 100%" class="grid_table center">
                 <div v-for="b in burgers" class="cell">
                     <h4>{{b.name}}</h4>
                     <img :src="b.image" :alt="b.name" :title="b.name" height="125px">
                     <ul>
                         <li>{{b.kCal}} kCal</li>
-                        <li v-if="b.hasLactose == true">Contains <b>lactose</b></li>
-                        <li v-if="b.hasGluten == true">Contains <b>gluten</b></li>
+                        <li v-if="b.lactose">Contains <b>lactose</b></li>
+                        <li v-if="b.gluten">Contains <b>gluten</b></li>
                     </ul>
                 </div>
             </div>
@@ -40,23 +42,23 @@
             <form id="delivery_form">
                 <p>
                     <label for="name">First</label><br>
-                    <input type="text" id="name" name="nm" required="required" placeholder="First- and Last name">
+                    <input type="text" v-model="name" id="name" name="nm" required="required" placeholder="First- and Last name">
                 </p>
                 <p>
                     <label for="email">E-mail</label><br>
-                    <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+                    <input type="email" v-model="email" id="email" name="em" required="required" placeholder="E-mail address">
                 </p>
                 <p>
                     <label for="street">Street</label><br>
-                    <input type="text" id="street" name="st" placeholder="Street name">
+                    <input type="text" v-model="street" id="street" name="st" placeholder="Street name">
                 </p>
                 <p>
                     <label for="house">House</label><br>
-                    <input type="number" id="house" name="ho" placeholder="House number">
+                    <input type="number" v-model="house" id="house" name="ho" placeholder="House number">
                 </p>
                 <p>
                     <label for="payment_options">Payment options</label><br>
-                    <select id="payment_options" name="popt">
+                    <select v-model="payment_options" id="payment_options" name="popt">
                         <option selected="selected">Credit Card</option>
                         <option>Paypal</option>
                         <option>Swish</option>
@@ -65,16 +67,29 @@
                 </p>
                 <p>
                     <label for="gender">Gender</label><br>
-                    <input type="radio" name="gender">Male<br>
-                    <input type="radio" name="gender">Female<br>
-                    <input type="radio" name="gender">Non-binary<br>
-                    <input type="radio" name="gender" checked="checked">Undisclosed<br>
+                    <input type="radio" v-model="gender" name="gender" value="Male">Male<br>
+                    <input type="radio" v-model="gender" name="gender" value="Female">Female<br>
+                    <input type="radio" v-model="gender" name="gender" value="Non-binary">Non-binary<br>
+                    <input type="radio" v-model="gender" name="gender" value="Undisclosed" checked="checked">Undisclosed<br>
                 </p>
-        </section>
-        </form>
-        <button type="submit" form="delivery_form"><img src="https://static.thenounproject.com/png/1406661-200.png" alt=""
+            </form>
+            <!-- <button id="purchase_button" type="submit" form="delivery_form"><img src="https://static.thenounproject.com/png/1406661-200.png" alt=""
                 style="height: 1.2rem;">
-            Place my order!</button>
+                Place my order!</button> -->
+            <button id="purchase_button" v-on:click="purchase_button_pressed"><img src="https://static.thenounproject.com/png/1406661-200.png"
+                    alt="" style="height: 1.2rem;">
+                Place my order!</button>
+            <div id="show_puchase_order">
+                <p v-if="isShown == true">
+                    Name: {{info.name}}<br>
+                    Email: {{info.email}}<br>
+                    Street: {{info.street}}<br>
+                    House: {{info.house}}<br>
+                    Payment: {{info.payment_options}}<br>
+                    Gender: {{info.gender}}
+                </p>
+            </div>
+        </section>
     </main>
     <footer>
         <p>© 2018 Hypothetical Burgers Inc.</p>
