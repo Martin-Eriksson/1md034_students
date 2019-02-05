@@ -39,26 +39,26 @@
             <h3>Customer Information</h3>
             <p>This is where you provide the necessary information</p>
             <h4>Delivery information:</h4>
-            <form id="delivery_form">
+            <form @input="formUpdate" id="delivery_form">
                 <p>
                     <label for="name">First</label><br>
-                    <input type="text" v-model="name" id="name" name="nm" required="required" placeholder="First- and Last name">
+                    <input type="text" id="name" name="nm" required="required" placeholder="First- and Last name">
                 </p>
                 <p>
                     <label for="email">E-mail</label><br>
-                    <input type="email" v-model="email" id="email" name="em" required="required" placeholder="E-mail address">
+                    <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
                 </p>
                 <p>
                     <label for="street">Street</label><br>
-                    <input type="text" v-model="street" id="street" name="st" placeholder="Street name">
+                    <input type="text" id="street" name="st" placeholder="Street name">
                 </p>
                 <p>
                     <label for="house">House</label><br>
-                    <input type="number" v-model="house" id="house" name="ho" placeholder="House number">
+                    <input type="number" id="house" name="ho" placeholder="House number">
                 </p>
                 <p>
                     <label for="payment_options">Payment options</label><br>
-                    <select v-model="payment_options" id="payment_options" name="popt">
+                    <select id="payment_options" name="popt">
                         <option selected="selected">Credit Card</option>
                         <option>Paypal</option>
                         <option>Swish</option>
@@ -67,10 +67,10 @@
                 </p>
                 <p>
                     <label for="gender">Gender</label><br>
-                    <input type="radio" v-model="gender" name="gender" value="Male">Male<br>
-                    <input type="radio" v-model="gender" name="gender" value="Female">Female<br>
-                    <input type="radio" v-model="gender" name="gender" value="Non-binary">Non-binary<br>
-                    <input type="radio" v-model="gender" name="gender" value="Undisclosed" checked="checked">Undisclosed<br>
+                    <input type="radio" name="gender" value="Male">Male<br>
+                    <input type="radio" name="gender" value="Female">Female<br>
+                    <input type="radio" name="gender" value="Non-binary">Non-binary<br>
+                    <input type="radio" name="gender" value="Undisclosed" checked="checked">Undisclosed<br>
                 </p>
             </form>
             <!-- <button id="purchase_button" type="submit" form="delivery_form"><img src="https://static.thenounproject.com/png/1406661-200.png" alt=""

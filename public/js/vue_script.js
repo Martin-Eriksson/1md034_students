@@ -37,12 +37,6 @@ let vm = new Vue({
 let vm3 = new Vue({
     el: '#purchase',
     data: {
-        name: null,
-        email: null,
-        street: null,
-        house: null,
-        payment_options: 'Credit Card',
-        gender: 'Undisclosed',
         info: null,
         isShown: false,
     },
@@ -51,6 +45,10 @@ let vm3 = new Vue({
             console.log("Button clicked!");
             this.info = readForm();
             this.isShown = true;
+        },
+        formUpdate: function () {
+            console.log("Form updated!");
+            this.isShown = false;
         }
     },
 })
