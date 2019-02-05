@@ -81,7 +81,7 @@ footer {
 
 .center {
     text-align: center;
-}
+}   
 
 .left {
     text-align: left;
@@ -96,4 +96,5 @@ footer {
 .cell {
     display: grid;
     justify-self: center;
+    grid-template-rows: max-content max-content max-content;
 }
