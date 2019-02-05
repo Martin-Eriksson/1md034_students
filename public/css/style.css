@@ -52,6 +52,18 @@ table {
     padding: 0 1rem;
 }
 
+#burger_menu input[type=checkbox] {
+    display: none;
+}
+
+#burger_menu input[type=checkbox]:hover+label {
+    cursor: pointer;
+}
+
+#burger_menu input[type=checkbox]:checked+label {
+    background-color: red;
+}
+
 #purchase {
     border: 1px dashed black;
     padding: 0 1rem;
@@ -81,7 +93,7 @@ footer {
 
 .center {
     text-align: center;
-}   
+}
 
 .left {
     text-align: left;
@@ -94,7 +106,11 @@ footer {
 }
 
 .cell {
+    /* display: flex;
+    flex-direction: column; */
     display: grid;
-    justify-self: center;
+    justify-items: center;
+    /* justify-self: center; */
     grid-template-rows: max-content max-content max-content;
+    height: 100%;
 }

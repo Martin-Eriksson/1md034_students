@@ -21,6 +21,7 @@ function readForm() {
         house: document.getElementById("house").value,
         payment_options: document.getElementById("payment_options").value,
         gender: document.querySelector('input[name="gender"]:checked').value,
+        selectedBurgers: [...document.querySelectorAll('#burger_menu input:checked')].map(x => " " + x.value),
     }
 
 }

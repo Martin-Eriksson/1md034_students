@@ -24,14 +24,17 @@
             <h3>Select burger</h3>
             <p>This is where you execute burger selection</p>
             <div style="height: 100%" class="grid_table center">
-                <div v-for="b in burgers" class="cell">
-                    <h4>{{b.name}}</h4>
-                    <img :src="b.image" :alt="b.name" :title="b.name" height="125px">
-                    <ul>
-                        <li>{{b.kCal}} kCal</li>
-                        <li v-if="b.lactose">Contains <b>lactose</b></li>
-                        <li v-if="b.gluten">Contains <b>gluten</b></li>
-                    </ul>
+                <div v-for="(b, index) in burgers">
+                    <input type="checkbox" :id="'item' + index" :value="b.name">
+                    <label :for="'item' + index" class="cell">
+                        <h4>{{b.name}}</h4>
+                        <img :src="b.image" :alt="b.name" :title="b.name" height="125px">
+                        <ul>
+                            <li>{{b.kCal}} kCal</li>
+                            <li v-if="b.lactose">Contains <b>lactose</b></li>
+                            <li v-if="b.gluten">Contains <b>gluten</b></li>
+                        </ul>
+                    </label>
                 </div>
             </div>
         </section>
@@ -86,7 +89,9 @@
                     Street: {{info.street}}<br>
                     House: {{info.house}}<br>
                     Payment: {{info.payment_options}}<br>
-                    Gender: {{info.gender}}
+                    Gender: {{info.gender}}<br>
+                    Burgers: <span v-for="(selectedBurger, index) in info.selectedBurgers"><span v-if="index != 0">,
+                        </span>{{selectedBurger}}</span>
                 </p>
             </div>
         </section>

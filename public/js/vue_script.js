@@ -35,7 +35,7 @@ let vm = new Vue({
 // })
 
 let vm3 = new Vue({
-    el: '#purchase',
+    el: 'main',
     data: {
         info: null,
         isShown: false,
@@ -51,7 +51,7 @@ let vm3 = new Vue({
             this.isShown = false;
         }
     },
-})
+});
 
 
 // let vm3 = new Vue({
