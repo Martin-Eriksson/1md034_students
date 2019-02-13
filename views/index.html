@@ -80,8 +80,8 @@
                     Email: {{info.email}}<br>
                     Payment: {{info.payment_options}}<br>
                     Gender: {{info.gender}}<br>
-                    Burgers: <span v-for="(selectedBurger, index) in info.selectedBurgers"><span v-if="index != 0">,
-                        </span>{{selectedBurger.value}}</span>
+                    Burgers: <span v-for="(selectedBurger, index) in selectedBurgers"><span v-if="index != 0">,
+                        </span>{{selectedBurger}}</span>
                 </p>
             </div>
         </section>
