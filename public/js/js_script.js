@@ -1,4 +1,4 @@
-let myButton = document.getElementById("purchase_button");
+const myButton = document.getElementById('purchase_button');
 
 // function readForm() {
 //     let info = new Object();
@@ -15,15 +15,12 @@ let myButton = document.getElementById("purchase_button");
 
 function readForm() {
     return {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        street: document.getElementById("street").value,
-        house: document.getElementById("house").value,
-        payment_options: document.getElementById("payment_options").value,
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        payment_options: document.getElementById('payment_options').value,
         gender: document.querySelector('input[name="gender"]:checked').value,
-        selectedBurgers: [...document.querySelectorAll('#burger_menu input:checked')].map(x => " " + x.value),
-    }
-
+        selectedBurgers: [...document.querySelectorAll('#burger_menu input:checked')].map(x => ` ${x.value}`),
+    };
 }
 
 

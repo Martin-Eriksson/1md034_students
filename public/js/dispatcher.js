@@ -1,21 +1,22 @@
-/*jslint es5:true, indent: 2 */
-/*global Vue, io */
+/* jslint es5:true, indent: 2 */
+/* global Vue, io */
 /* exported vm */
-'use strict';
-var socket = io();
 
-var vm = new Vue({
+
+const socket = io();
+
+const vm = new Vue({
   el: '#orders',
   data: {
     orders: {},
   },
-  created: function () {
-    socket.on('initialize', function (data) {
+  created() {
+    socket.on('initialize', (data) => {
       this.orders = data.orders;
-    }.bind(this));
+    });
 
-    socket.on('currentQueue', function (data) {
+    socket.on('currentQueue', (data) => {
       this.orders = data.orders;
-    }.bind(this));
-  }
+    });
+  },
 });

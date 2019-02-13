@@ -4,14 +4,13 @@
 <head>
     <title>Hamburger Delivery</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="../public/css/style.css"> <!-- for VSC preview plugin -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script defer type="text/javascript" src="https://vuejs.org/js/vue.js"></script>
+    <!-- <script defer type="text/javascript" src="https://vuejs.org/js/vue.js"></script> -->
+    <script src="/vue/vue.js" defer></script>
     <script defer type="text/javascript" src="js/menu.js"></script>
-    <script defer type="text/javascript" src="../public/js/menu.js"></script> <!-- for VSC preview plugin -->
-    <script defer type="text/javascript" src="../public/js/js_script.js"></script> <!-- for VSC preview plugin -->
-    <script defer type="text/javascript" src="../public/js/vue_script.js"></script> <!-- for VSC preview plugin -->
-    <script defer type="text/javascript" src="js/vue_script.js"></script>
+    <script defer type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script defer type="text/javascript" src="js/deli-very.js"></script>
+    <!-- <script defer type="text/javascript" src="js/vue_script.js"></script> -->
     <script defer type="text/javascript" src="js/js_script.js"></script>
 </head>
 
@@ -52,14 +51,6 @@
                     <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
                 </p>
                 <p>
-                    <label for="street">Street</label><br>
-                    <input type="text" id="street" name="st" placeholder="Street name">
-                </p>
-                <p>
-                    <label for="house">House</label><br>
-                    <input type="number" id="house" name="ho" placeholder="House number">
-                </p>
-                <p>
                     <label for="payment_options">Payment options</label><br>
                     <select id="payment_options" name="popt">
                         <option selected="selected">Credit Card</option>
@@ -76,6 +67,13 @@
                     <input type="radio" name="gender" value="Undisclosed" checked="checked">Undisclosed<br>
                 </p>
             </form>
+            <div class="view-box">
+                <div id="dots" v-on:click="displayOrder">
+                    <div v-for="order in orders" v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                        {{order.orderId}}
+                    </div>
+                </div>
+            </div>
             <!-- <button id="purchase_button" type="submit" form="delivery_form"><img src="https://static.thenounproject.com/png/1406661-200.png" alt=""
                 style="height: 1.2rem;">
                 Place my order!</button> -->

@@ -14,15 +14,15 @@
 // let m3 = new MenuItem("Hej3", 1003, true, true, "https://www.seriouseats.com/recipes/images/2015/07/20150728-homemade-whopper-food-lab-35-1500x1125.jpg");
 // let m4 = new MenuItem("Hej4", 1004, true, false, "https://www.seriouseats.com/recipes/images/2015/07/20150728-homemade-whopper-food-lab-35-1500x1125.jpg");
 
-//let burgers = [m0, m1, m2, m3, m4];
+// let burgers = [m0, m1, m2, m3, m4];
 
 
-let vm = new Vue({
-    el: '#burger_menu',
-    data: {
-        burgers
-    }
-});
+// let vm2 = new Vue({
+//     el: '#burger_menu',
+//     data: {
+//         burgers
+//     }
+// });
 
 // let vm2 = new Vue({
 //     el: '#purchase_button',
@@ -34,22 +34,23 @@ let vm = new Vue({
 //     },
 // })
 
-let vm3 = new Vue({
+const vm3 = new Vue({
     el: 'main',
     data: {
         info: null,
         isShown: false,
+        burgers,
     },
     methods: {
-        purchase_button_pressed: function () {
-            console.log("Button clicked!");
+        purchase_button_pressed() {
+            console.log('Button clicked!');
             this.info = readForm();
             this.isShown = true;
         },
-        formUpdate: function () {
-            console.log("Form updated!");
+        formUpdate() {
+            console.log('Form updated!');
             this.isShown = false;
-        }
+        },
     },
 });
 
