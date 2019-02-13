@@ -5,13 +5,10 @@
     <title>Hamburger Delivery</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!-- <script defer type="text/javascript" src="https://vuejs.org/js/vue.js"></script> -->
-    <script src="/vue/vue.js" defer></script>
+    <script defer type="text/javascript" src="/vue/vue.js"></script>
     <script defer type="text/javascript" src="js/menu.js"></script>
     <script defer type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script defer type="text/javascript" src="js/deli-very.js"></script>
-    <!-- <script defer type="text/javascript" src="js/vue_script.js"></script> -->
-    <script defer type="text/javascript" src="js/js_script.js"></script>
 </head>
 
 <body>
@@ -74,9 +71,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <button id="purchase_button" type="submit" form="delivery_form"><img src="https://static.thenounproject.com/png/1406661-200.png" alt=""
-                style="height: 1.2rem;">
-                Place my order!</button> -->
             <button id="purchase_button" v-on:click="purchase_button_pressed"><img src="https://static.thenounproject.com/png/1406661-200.png"
                     alt="" style="height: 1.2rem;">
                 Place my order!</button>
@@ -84,12 +78,10 @@
                 <p v-if="isShown == true">
                     Name: {{info.name}}<br>
                     Email: {{info.email}}<br>
-                    Street: {{info.street}}<br>
-                    House: {{info.house}}<br>
                     Payment: {{info.payment_options}}<br>
                     Gender: {{info.gender}}<br>
                     Burgers: <span v-for="(selectedBurger, index) in info.selectedBurgers"><span v-if="index != 0">,
-                        </span>{{selectedBurger}}</span>
+                        </span>{{selectedBurger.value}}</span>
                 </p>
             </div>
         </section>
