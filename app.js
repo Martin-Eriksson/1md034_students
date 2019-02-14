@@ -36,23 +36,14 @@ function Data() {
   this.orders = {};
 }
 
-Data.prototype.getNext = function () {
-  const lastOrder = Object.keys(this.orders).reduce((prev, next) => Math.max(prev, next), 0);
-  return lastOrder + 1;
-}
 
 /*
   Adds an order to to the queue
 */
 Data.prototype.addOrder = function (order) {
-  // function getNext(orders) {
-  //   const lastOrder = Object.keys(orders).reduce((prev, next) => Math.max(prev, next), 0);
-  //   return lastOrder + 1;
-  // }
 
-  // let getNext = (orders) => Object.keys(orders).reduce((prev, next) => Math.max(prev, next), 0) + 1;
-  // this.orders[getNext(this.orders)] = order;
-  this.orders[this.getNext()] = order;
+  let getNext = (orders) => Object.keys(orders).reduce((prev, next) => Math.max(prev, next), 0) + 1;
+  this.orders[getNext(this.orders)] = order;
 };
 
 Data.prototype.getAllOrders = function () {
