@@ -41,8 +41,8 @@ function Data() {
   Adds an order to to the queue
 */
 Data.prototype.addOrder = function (order) {
-
   let getNext = (orders) => Object.keys(orders).reduce((prev, next) => Math.max(prev, next), 0) + 1;
+  
   this.orders[getNext(this.orders)] = order;
 };
 
