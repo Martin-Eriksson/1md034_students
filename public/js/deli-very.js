@@ -6,7 +6,7 @@ const socket = io();
 const vm = new Vue({
     el: 'main',
     data: {
-        orders: {},
+        orders: [],
         info: null,
         selectedBurgers: null,
         isShown: false,
@@ -23,6 +23,7 @@ const vm = new Vue({
             socket.emit('addOrder', order);
         },
         displayOrder(event) {
+            this.formUpdate();
             const offset = {
                 x: event.currentTarget.getBoundingClientRect().left,
                 y: event.currentTarget.getBoundingClientRect().top,
@@ -46,8 +47,11 @@ const vm = new Vue({
                 gender: document.querySelector('input[name="gender"]:checked').value,
             };
             this.selectedBurgers = [...document.querySelectorAll('#burger_menu input:checked')].map(x => x.value);
-            this.addOrder();
-            this.isShown = true;
+
+            if (this.orders.length > 0) {
+                this.addOrder();
+                this.isShown = true;
+            }
         },
         formUpdate() {
             console.log('Form updated!');

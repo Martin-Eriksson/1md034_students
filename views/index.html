@@ -64,20 +64,23 @@
                     <input type="radio" name="gender" value="Undisclosed" checked="checked">Undisclosed<br>
                 </p>
             </form>
+            <p>Please indicate point of delivery:</p>
             <div class="view-box">
-                <div id="dots" v-on:click="displayOrder">
-                    <div v-for="order in orders" v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                <div id="dots" @click="displayOrder">
+                    <div v-for="order in orders" :style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
                         {{order.orderId}}
                     </div>
                 </div>
             </div>
-            <button id="purchase_button" v-on:click="purchase_button_pressed"><img src="https://static.thenounproject.com/png/1406661-200.png"
+            <button id="purchase_button" @click="purchase_button_pressed"><img src="https://static.thenounproject.com/png/1406661-200.png"
                     alt="" style="height: 1.2rem;">
                 Place my order!</button>
             <div id="show_puchase_order">
                 <p v-if="isShown == true">
                     Name: {{info.name}}<br>
                     Email: {{info.email}}<br>
+                    Deliver to: {{orders[0].details.x.toFixed(2)}} x /
+                    {{orders[0].details.y.toFixed(2)}} y<br>
                     Payment: {{info.payment_options}}<br>
                     Gender: {{info.gender}}<br>
                     Burgers: <span v-for="(selectedBurger, index) in selectedBurgers"><span v-if="index != 0">,
